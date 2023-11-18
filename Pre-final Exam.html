@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form name="form">
+            Input: <input type="number" name="number" placeholder="Enter a number">
+            <input type="button" value="Submit" onclick="checkNumber()">
+        </form>
+        <script>
+            function checkNumber() {
+                var a = parseInt(document.form.number.value);
+
+                var isPrime = true;
+                var resultMessage = "";
+
+                for (var i = 2; i < a; i++) {
+                    if (a % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                if (isPrime) {
+                    resultMessage = a + " is a prime number";
+                } else {
+                    resultMessage = a + " is not a prime number";
+                }
+
+                document.getElementById("result").innerHTML = resultMessage;
+
+                var evenNums = [];
+                var oddNums = [];
+
+                for (var i = 1; i <= a; i++) {
+                    if (i % 2 === 0) {
+                        evenNums.push(i);
+                    } else {
+                        oddNums.push(i);
+                    }
+                }
+
+                document.getElementById("even").innerHTML = "Even numbers: " + evenNums.join(" ");
+                document.getElementById("odd").innerHTML = "Odd numbers: " + oddNums.join(" ");
+            }
+        </script>
+        <p id="result"></p>
+        <p id="even"></p>
+        <p id="odd"></p>
+    </body>
+</html>
